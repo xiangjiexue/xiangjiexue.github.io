@@ -1,0 +1,14 @@
+name: "my-website"
+navbar:
+  title: "Xiangjie's website"
+  left:
+    - text: "Home"
+      href: index.html
+  right:
+    - icon: fa-envolope
+      href: mailto:<xxjiexxjie@gmail.com>
+    - icon: fa-github
+      href: http://github.com/xiangjiexue/
+output:
+  html_document:
+    theme: darkly
