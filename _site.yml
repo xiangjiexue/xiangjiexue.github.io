@@ -9,6 +9,3 @@ navbar:
       href: mailto:<xxjiexxjie@gmail.com>
     - icon: fa-github
       href: http://github.com/xiangjiexue/
-output:
-  html_document:
-    theme: darkly
