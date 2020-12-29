@@ -4,7 +4,15 @@ navbar:
   title: "Xiangjie's website"
   left:
     - text: "Home"
+      icon: fa-home
       href: index.html
+    - text: "About"
+      href: about.html
+      icon: fa-info
+  right:
+    - icon: fa-question fa-lg
+      href: https://github.com/xiangjiexue
 output:
   html_document:
-    theme: darkly
+    include:
+      after_body: footer.html

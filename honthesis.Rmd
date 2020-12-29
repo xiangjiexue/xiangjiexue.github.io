@@ -1,0 +1,12 @@
+---
+title: "Gap Properties of Brownian Motion on the Two-Dimensional Unit Torus"
+---
+
+B.Sc. (Hon) dissertation supervised by Dr. Mark Holmes and Dr. Jesse Goodman
+
+***
+**Abstract**
+
+In this dissertation, we are interested in the tail distribution of the global largest radius in the complement of the Brownian motion on two-dimensional unit torus. We want to study this tail distribution using simulations. Firstly, we develop a computer program to estimate the largest circle in the complement of a simulated random walk with the increment of the random walk being of constant magnitude on the two-dimensional unit torus. After that, we extend to the random walk with increments of the random walk being normally distributed. Using this program, we generate a large number of simulations and attempt to fit the data with power-law distributions using two different approaches and test the validity of these two methods. Finally, we assess the accuracy of the estimated circles by looking at the movement of a Brownian motion between two consecutive points in simulated data using one-dimensional approximations.
+
+***
