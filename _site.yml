@@ -4,14 +4,14 @@ navbar:
   title: "Xiangjie's website"
   left:
     - text: "Home"
-      icon: fa-home
       href: index.html
+    - text: "R packages"
+      href: rpackages.html
     - text: "About"
       href: about.html
-      icon: fa-info
   right:
     - icon: fa-question fa-lg
-      href: https://github.com/xiangjiexue
+      href: buildinfo.html
 output:
   html_document:
     include:

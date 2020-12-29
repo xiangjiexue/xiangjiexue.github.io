@@ -1,0 +1,113 @@
+---
+title: "R packages"
+bibliography: Refs.bib
+---
+
+```{r echo = FALSE, message = FALSE}
+if (!require("badger")){
+  install.packages("badger")
+}
+library("badger")
+
+if (!require("devtools")){
+  install.packages("devtools")
+}
+library("devtools")
+```
+
+This page gives some details about the R package that I have written.
+
+***
+**Something about R**
+
+
+R is a language and environment for statistical computing and graphics. It is a
+GNU project which is similar to the S language and environment which was 
+developed at Bell Laboratories (formerly AT&T, now Lucent Technologies) by John 
+Chambers and colleagues.
+
+R provides a wide variety of statistical (linear and nonlinear modelling, 
+classical statistical tests, time-series analysis, classification, clustering, 
+...) and graphical techniques, and is highly extensible.
+
+More details can be found [HERE](https://r-project.org/)
+
+***
+
+## npfixedcompR
+
+`r badge_last_commit("xiangjiexue/npfixedcompR")` 
+`r badge_custom("on CRAN", "no", "red")`
+
+During [my PhD study](./phdthesis.html), I have developed different approaches
+to estimating a mixing distribution (or mixtures) non-parametrically and 
+implemented these in R. The source code can be found on 
+[this Github repo](https://github.com/xiangjiexue/npfixedcompR) and can be
+installed using the devtools package.
+
+```{r, eval = FALSE}
+devtools::install_github("xiangjiexue/npfixedcompR")
+```
+
+***
+**non-parametric mixtures**
+
+According to @RN104, The non-parametric mixture model assumes that the 
+distribution of all underlying incidental parameters is treated as completely 
+unspecified as to whether it is discrete, continuous or in any particular family
+of distributions.
+
+***
+
+We use the $z$-values of the prostate data mentioned in @RN255 as an example.
+There are 6033 observations and we are interested in investigating the
+proportion of null effects ($z$-statistic is 0) and the non-null effects. With 
+no assumption of the underlying structure of the null effects, non-parametric
+method should be used. With this R package, we can estimate the distribution
+of the non-null effect given the null proportion. In this case, we assume the
+component density is normal and use non-parametric maximum likelihood to find
+the mixing distribution.
+
+```{r, echo = FALSE, message = FALSE}
+library(npfixedcompR)
+library(nspmix)
+load(url("http://statweb.stanford.edu/~ckirby/brad/LSI/datasets-and-programs/data/prostz.RData"))
+hist(prostz, probability = TRUE, breaks = 100, main = expression(paste("Density Estimates for various ", pi[0])), ylab = "Density", xlab = NULL, ylim = c(0, 0.45))
+col1 = rainbow(6)
+x = makeobject(prostz)
+plot(computemixdist(x), add = TRUE, col = col1[1], col1 = col1[1])
+x = makeobject(prostz, pi0 = 0.2)
+plot(computemixdist(x), add = TRUE, col = col1[2], col1 = col1[2])
+x = makeobject(prostz, pi0 = 0.4)
+plot(computemixdist(x), add = TRUE, col = col1[3], col1 = col1[3])
+x = makeobject(prostz, pi0 = 0.6)
+plot(computemixdist(x), add = TRUE, col = col1[4], col1 = col1[4])
+x = makeobject(prostz, pi0 = 0.8)
+plot(computemixdist(x), add = TRUE, col = col1[5], col1 = col1[5])
+legend("topright", legend = expression(pi[0] == 0, pi[0] == 0.2, pi[0] == 0.4, pi[0] == 0.6, pi[0] == 0.8), col = col1[1:5], bg = "white", lty = 1)
+```
+
+It is also possible to estimate the null proportion using a threshold function 
+(analogue to variable selection). Taking AIC as an example
+
+```{r, echo = FALSE, message = FALSE}
+x$estpi0()
+hist(prostz, probability = TRUE, breaks = 100, main = expression(paste("Density Estimates for various ", pi[0])), ylab = "Density", xlab = NULL, ylim = c(0, 0.45))
+plot(x$result, add = TRUE)
+print("Estimated pi0")
+x$result$mix$pr[x$result$mix$pt == 0]
+```
+
+***
+R packages used on this page
+
+* lsei `r badge_cran_release("lsei", "orange")` 
+`r badge_dependencies("lsei")` `r badge_cran_checks("lsei")`
+
+* nspmix `r badge_cran_release("nspmix", "orange")` 
+`r badge_dependencies("nspmix")` `r badge_cran_checks("nspmix")`
+
+* devtools `r badge_cran_release("devtools", "orange")` 
+`r badge_dependencies("devtools")` `r badge_cran_checks("devtools")`
+
+### References

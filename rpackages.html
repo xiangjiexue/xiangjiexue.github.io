@@ -11,7 +11,7 @@
 
 
 
-<title>Gap Properties of Brownian Motion on the Two-Dimensional Unit Torus</title>
+<title>R packages</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -309,16 +309,52 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Gap Properties of Brownian Motion on the Two-Dimensional Unit Torus</h1>
+<h1 class="title toc-ignore">R packages</h1>
 
 </div>
 
 
-<p>B.Sc. (Hon) dissertation supervised by Dr. Mark Holmes and Dr. Jesse Goodman</p>
+<p>This page gives some details about the R package that I have written.</p>
 <hr />
-<p><strong>Abstract</strong></p>
-<p>In this dissertation, we are interested in the tail distribution of the global largest radius in the complement of the Brownian motion on two-dimensional unit torus. We want to study this tail distribution using simulations. Firstly, we develop a computer program to estimate the largest circle in the complement of a simulated random walk with the increment of the random walk being of constant magnitude on the two-dimensional unit torus. After that, we extend to the random walk with increments of the random walk being normally distributed. Using this program, we generate a large number of simulations and attempt to fit the data with power-law distributions using two different approaches and test the validity of these two methods. Finally, we assess the accuracy of the estimated circles by looking at the movement of a Brownian motion between two consecutive points in simulated data using one-dimensional approximations.</p>
+<p><strong>Something about R</strong></p>
+<p>R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&amp;T, now Lucent Technologies) by John Chambers and colleagues.</p>
+<p>R provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible.</p>
+<p>More details can be found <a href="https://r-project.org/">HERE</a></p>
 <hr />
+<div id="npfixedcompr" class="section level2">
+<h2>npfixedcompR</h2>
+<p><a href="https://github.com/xiangjiexue/npfixedcompR/commits/master"><img src="https://img.shields.io/github/last-commit/xiangjiexue/npfixedcompR.svg" /></a> <img src="https://img.shields.io/badge/on%20CRAN-no-red.svg" /></p>
+<p>During <a href="./phdthesis.html">my PhD study</a>, I have developed different approaches to estimating a mixing distribution (or mixtures) non-parametrically and implemented these in R. The source code can be found on <a href="https://github.com/xiangjiexue/npfixedcompR">this Github repo</a> and can be installed using the devtools package.</p>
+<pre class="r"><code>devtools::install_github(&quot;xiangjiexue/npfixedcompR&quot;)</code></pre>
+<hr />
+<p><strong>non-parametric mixtures</strong></p>
+<p>According to <span class="citation">Lindsay (1983)</span>, The non-parametric mixture model assumes that the distribution of all underlying incidental parameters is treated as completely unspecified as to whether it is discrete, continuous or in any particular family of distributions.</p>
+<hr />
+<p>We use the <span class="math inline">\(z\)</span>-values of the prostate data mentioned in <span class="citation">Singh et al. (2002)</span> as an example. There are 6033 observations and we are interested in investigating the proportion of null effects (<span class="math inline">\(z\)</span>-statistic is 0) and the non-null effects. With no assumption of the underlying structure of the null effects, non-parametric method should be used. With this R package, we can estimate the distribution of the non-null effect given the null proportion. In this case, we assume the component density is normal and use non-parametric maximum likelihood to find the mixing distribution.</p>
+<p><img src="rpackages_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>It is also possible to estimate the null proportion using a threshold function (analogue to variable selection). Taking AIC as an example</p>
+<p><img src="rpackages_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre><code>## [1] &quot;Estimated pi0&quot;</code></pre>
+<pre><code>## [1] 0.9369648</code></pre>
+<hr />
+<p>R packages used on this page</p>
+<ul>
+<li><p>lsei <a href="https://cran.r-project.org/package=lsei"><img src="https://www.r-pkg.org/badges/version/lsei?color=orange" /></a> <a href="https://cran.r-project.org/package=lsei"><img src="https://tinyverse.netlify.com/badge/lsei" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_lsei.html"><img src="https://cranchecks.info/badges/summary/lsei" alt="CRAN checks" /></a></p></li>
+<li><p>nspmix <a href="https://cran.r-project.org/package=nspmix"><img src="https://www.r-pkg.org/badges/version/nspmix?color=orange" /></a> <a href="https://cran.r-project.org/package=nspmix"><img src="https://tinyverse.netlify.com/badge/nspmix" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_nspmix.html"><img src="https://cranchecks.info/badges/summary/nspmix" alt="CRAN checks" /></a></p></li>
+<li><p>devtools <a href="https://cran.r-project.org/package=devtools"><img src="https://www.r-pkg.org/badges/version/devtools?color=orange" /></a> <a href="https://cran.r-project.org/package=devtools"><img src="https://tinyverse.netlify.com/badge/devtools" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_devtools.html"><img src="https://cranchecks.info/badges/summary/devtools" alt="CRAN checks" /></a></p></li>
+</ul>
+<div id="references" class="section level3 unnumbered">
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-RN104">
+<p>Lindsay, Bruce G. 1983. “The Geometry of Mixture Likelihoods - a General Theory.” Journal Article. <em>Annals of Statistics</em> 11: 86–94. <a href="https://doi.org/DOI%2010.1214/aos/1176346059">https://doi.org/DOI 10.1214/aos/1176346059</a>.</p>
+</div>
+<div id="ref-RN255">
+<p>Singh, Dinesh, Phillip G. Febbo, Kenneth Ross, Donald G. Jackson, Judith Manola, Christine Ladd, Pablo Tamayo, et al. 2002. “Gene Expression Correlates of Clinical Prostate Cancer Behavior.” <em>Cancer Cell</em> 1: 203–9. <a href="https://doi.org/https://doi.org/10.1016/S1535-6108(02)00030-2">https://doi.org/https://doi.org/10.1016/S1535-6108(02)00030-2</a>.</p>
+</div>
+</div>
+</div>
+</div>
 
 <hr />
 

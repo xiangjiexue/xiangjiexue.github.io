@@ -14,7 +14,8 @@ library("badger")
 My homepage is currently under initial development.
 
 ***
-This website is built in R using Rstudio. And special thanks to the following R 
+This website is built in R using Rstudio ([buildinfo](./buildinfo.html)), and
+hosted by github_pages. Special thanks to the following R 
 packages in building this website:
 
 * rmarkdown `r badge_cran_release("rmarkdown", "orange")` 
