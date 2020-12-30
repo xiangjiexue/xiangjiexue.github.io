@@ -1,0 +1,11 @@
+---
+title: "List of all references"
+author: "Xiangjie Xue"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+bibliography: Refs.bib
+---
+
+`r {singleString <- paste(readLines("Refs.bib"), collapse=" "); str = character(0); for (i in 1:1000) {if(length(grep(paste0('RN', i, ','), singleString)) > 0){str[length(str) + 1] = paste0("@RN", i)}}}; str`
+
+***

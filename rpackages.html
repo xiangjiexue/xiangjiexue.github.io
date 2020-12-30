@@ -314,7 +314,7 @@ $(document).ready(function () {
 </div>
 
 
-<p>This page gives some details about the R package that I have written.</p>
+<p>This page gives some details about the R packages that I have written.</p>
 <hr />
 <p><strong>Something about R</strong></p>
 <p>R is a language and environment for statistical computing and graphics. It is a GNU project which is similar to the S language and environment which was developed at Bell Laboratories (formerly AT&amp;T, now Lucent Technologies) by John Chambers and colleagues.</p>
@@ -331,13 +331,13 @@ $(document).ready(function () {
 <p>According to <span class="citation">Lindsay (1983)</span>, The non-parametric mixture model assumes that the distribution of all underlying incidental parameters is treated as completely unspecified as to whether it is discrete, continuous or in any particular family of distributions.</p>
 <hr />
 <p>We use the <span class="math inline">\(z\)</span>-values of the prostate data mentioned in <span class="citation">Singh et al. (2002)</span> as an example. There are 6033 observations and we are interested in investigating the proportion of null effects (<span class="math inline">\(z\)</span>-statistic is 0) and the non-null effects. With no assumption of the underlying structure of the null effects, non-parametric method should be used. With this R package, we can estimate the distribution of the non-null effect given the null proportion. In this case, we assume the component density is normal and use non-parametric maximum likelihood to find the mixing distribution.</p>
-<p><img src="rpackages_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<p>It is also possible to estimate the null proportion using a threshold function (analogue to variable selection). Taking AIC as an example</p>
-<p><img src="rpackages_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
-<pre><code>## [1] &quot;Estimated pi0&quot;</code></pre>
-<pre><code>## [1] 0.9369648</code></pre>
+<p><img src="files/densityestimate.png" /><!-- --></p>
+<p>It is also possible to estimate the null proportion using a threshold function (analogue to variable selection). Taking AIC as an example:</p>
+<p><img src="files/pi0estimate.png" /><!-- --></p>
+<p>In this case, the null prortion is estimated to be 0.939.</p>
+<p>A detailed manual of this package can be found <a href="./npfixedcompR_0.0.1.0008.pdf">here</a>.</p>
 <hr />
-<p>R packages used on this page</p>
+<p>Related R packages</p>
 <ul>
 <li><p>lsei <a href="https://cran.r-project.org/package=lsei"><img src="https://www.r-pkg.org/badges/version/lsei?color=orange" /></a> <a href="https://cran.r-project.org/package=lsei"><img src="https://tinyverse.netlify.com/badge/lsei" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_lsei.html"><img src="https://cranchecks.info/badges/summary/lsei" alt="CRAN checks" /></a></p></li>
 <li><p>nspmix <a href="https://cran.r-project.org/package=nspmix"><img src="https://www.r-pkg.org/badges/version/nspmix?color=orange" /></a> <a href="https://cran.r-project.org/package=nspmix"><img src="https://tinyverse.netlify.com/badge/nspmix" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_nspmix.html"><img src="https://cranchecks.info/badges/summary/nspmix" alt="CRAN checks" /></a></p></li>

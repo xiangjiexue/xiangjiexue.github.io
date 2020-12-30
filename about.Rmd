@@ -2,9 +2,23 @@
 title: "About Me"
 ---
 
-My academic CV can be found [here](./Xiangjie Xue - Academic.pdf)
+About myself:
 
-## Education
+* Strong background in mathematics and statistics,
+
+* experienced R, C++ and Linux user,
+
+* Curiosity in modern technologies. 
+
+My academic CV can be found [here](./Xiangjie Xue - Academic.pdf).
+
+You can reach me at [Github](https://github.com/xiangjiexue),
+[Email](mailto:<xxjiexxjie@gmail.com>),
+[UOAwebpage](https://stat.auckland.ac.nz/~xxue017).
+
+*** 
+
+### Education
 
 Ph.D., Statistics, 2020, University of Auckland (Under examination) 
 [technical detail](./phdthesis.html)
@@ -14,7 +28,9 @@ B.Sc.(Hon), Statistics (First Class), 2015, University of Auckland
 
 B.Sc., Applied Mathematics and Operations Research, 2014, University of Auckland
 
-## Awards and Scholarships
+***
+
+### Awards and Scholarships
 
 University of Auckland Doctoral Scholarship
 
@@ -24,7 +40,9 @@ The $360^\circ$ Auckland Abroad Exchange Travel Awards
 
 Senior Scholar Award in the Faculty of Science
 
-## Work
+***
+
+### Work
 
 Teaching Assistant in Mathematics (2013 - 2014) and Statistics (2015)
 
@@ -40,7 +58,9 @@ Teaching courses in:
 
 * Data Science Practice
 
-## Publications
+***
+
+### Publications
 
 Xue, X. and Wang, Y. (2020). *A Non-parametric Mixture Approach to Density and Null Proportion Estimation in Large-scale Multiple Comparison Problems* [In preparation]
 

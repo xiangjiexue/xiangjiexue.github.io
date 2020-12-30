@@ -10,6 +10,7 @@ library("badger")
 ```
 
 `r badge_last_commit("xiangjiexue/xiangjiexue.github.io")`
+`r badge_lifecycle("experimental", "orange")`
 
 My homepage is currently under initial development.
 
@@ -23,3 +24,6 @@ packages in building this website:
 
 * badger `r badge_cran_release("badger", "orange")` 
 `r badge_dependencies("badger")` `r badge_cran_checks("badger")`
+
+* knitr `r badge_cran_release("knitr", "orange")` 
+`r badge_dependencies("knitr")` `r badge_cran_checks("knitr")`
