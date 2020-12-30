@@ -10,8 +10,10 @@ navbar:
     - text: "About"
       href: about.html
   right:
-    - icon: fa-question fa-lg
+    - icon: fa-question
       href: buildinfo.html
+    - icon: fa-battery-half
+      href: misc.html
 output:
   html_document:
     include:

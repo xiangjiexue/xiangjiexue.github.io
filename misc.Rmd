@@ -1,0 +1,7 @@
+---
+title: "Misc Pages"
+---
+
+**List of all html files **
+
+`r {filenames = list.files(pattern = "*html"); paste0("[", filenames, "](./", filenames, ")")}`
