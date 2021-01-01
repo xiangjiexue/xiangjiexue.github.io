@@ -7,12 +7,23 @@ if (!require("badger")){
   install.packages("badger")
 }
 library("badger")
+if (!require("stringr")){
+  install.packages("stringr")
+}
+library("stringr")
 ```
 
 `r badge_last_commit("xiangjiexue/xiangjiexue.github.io")`
 `r badge_lifecycle("experimental", "orange")`
 
 My homepage is currently under initial development.
+
+**The latest blog from me:**
+
+***
+<!-- used regex to get the latest blog from ./blog.html -->
+
+`r {singleString <- paste(readLines("blog.Rmd"), collapse="\n"); stringr::str_extract_all(singleString, "(?<=\\*\\*\\*)[^\\*\\*\\*]+(?=\\*\\*)")[[1]][1];}`
 
 ***
 This website is built in R using Rstudio, and
@@ -27,5 +38,8 @@ packages in building this website:
 
 * knitr `r badge_cran_release("knitr", "orange")` 
 `r badge_dependencies("knitr")` `r badge_cran_checks("knitr")`
+
+* stringr `r badge_cran_release("stringr", "orange")` 
+`r badge_dependencies("stringr")` `r badge_cran_checks("stringr")`
 
 See build information [here](./buildinfo.html).

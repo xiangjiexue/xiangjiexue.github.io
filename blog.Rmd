@@ -1,0 +1,21 @@
+---
+title: "Blog? Blog!"
+---
+
+***
+## Happy New Year
+01/01/2021
+
+Happy New year from me!
+
+Wish everyone have a great year this year!
+
+***
+
+## Initialisation
+01/01/2021
+
+This is an initialisation in order to test that regex is working for index.html
+is working on this page.
+
+***

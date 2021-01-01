@@ -7,6 +7,8 @@ navbar:
       href: index.html
     - text: "R packages"
       href: rpackages.html
+    - text: "Blogger"
+      href: blog.html
     - text: "About"
       href: about.html
   right:

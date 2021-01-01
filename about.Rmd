@@ -10,7 +10,7 @@ About myself:
 
 * Curiosity in modern technologies. 
 
-My academic CV can be found [here](./Xiangjie Xue - Academic.pdf).
+My academic CV can be found [here](./files/Xiangjie Xue - Academic.pdf).
 
 You can reach me at [Github](https://github.com/xiangjiexue),
 [Email](mailto:<xxjiexxjie@gmail.com>),

@@ -37,6 +37,7 @@ More details can be found [HERE](https://r-project.org/)
 ## npfixedcompR
 
 `r badge_last_commit("xiangjiexue/npfixedcompR")` 
+`r badge_devel("xiangjiexue/npfixedcompR", "blue")`
 `r badge_custom("on CRAN", "no", "red")`
 
 During [my PhD study](./phdthesis.html), I have developed different approaches

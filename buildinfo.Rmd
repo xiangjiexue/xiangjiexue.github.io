@@ -2,7 +2,17 @@
 title: Build Info
 ---
 
+```{r echo = FALSE, message = FALSE}
+if (!require("badger")){
+  install.packages("badger")
+}
+library("badger")
+```
+
+Build info for this site:
+
+`r badge_code_size("xiangjiexue/xiangjiexue.github.io")`
+
 ```{r echo = FALSE}
 sessionInfo()
 ```
-
