@@ -330,6 +330,8 @@ $(document).ready(function () {
 <p>R provides a wide variety of statistical (linear and nonlinear modelling, classical statistical tests, time-series analysis, classification, clustering, …) and graphical techniques, and is highly extensible.</p>
 <p>More details can be found <a href="https://r-project.org/">HERE</a></p>
 <hr />
+<div id="packages" class="section level1 tabset">
+<h1>Packages</h1>
 <div id="npfixedcompr" class="section level2">
 <h2>npfixedcompR</h2>
 <p><a href="https://github.com/xiangjiexue/npfixedcompR/commits/master"><img src="https://img.shields.io/github/last-commit/xiangjiexue/npfixedcompR.svg" /></a> <a href="https://github.com/xiangjiexue/npfixedcompR"><img src="https://img.shields.io/badge/devel%20version-0.0.1.0008-blue.svg" /></a> <img src="https://img.shields.io/badge/on%20CRAN-no-red.svg" /></p>
@@ -339,29 +341,44 @@ $(document).ready(function () {
 <p><strong>non-parametric mixtures</strong></p>
 <p>According to <span class="citation">Lindsay (1983)</span>, The non-parametric mixture model assumes that the distribution of all underlying incidental parameters is treated as completely unspecified as to whether it is discrete, continuous or in any particular family of distributions.</p>
 <hr />
-<p>We use the <span class="math inline">\(z\)</span>-values of the prostate data mentioned in <span class="citation">Singh et al. (2002)</span> as an example. There are 6033 observations and we are interested in investigating the proportion of null effects (<span class="math inline">\(z\)</span>-statistic is 0) and the non-null effects. With no assumption of the underlying structure of the null effects, non-parametric method should be used. With this R package, we can estimate the distribution of the non-null effect given the null proportion. In this case, we assume the component density is normal and use non-parametric maximum likelihood to find the mixing distribution.</p>
+<p>We use the <span class="math inline">\(z\)</span>-values of the prostate data mentioned in <span class="citation">Singh et al. (2002)</span> as an example. There are 6033 observations and we are interested in investigating the proportion of null effects (<span class="math inline">\(z\)</span>-statistic is 0) and the non-null effects.</p>
+<hr />
+<p><strong><span class="math inline">\(z\)</span>-values/<span class="math inline">\(z\)</span>-statistics</strong></p>
+<p>The two-sample <a href="https://en.wikipedia.org/wiki/Student%27s_t-test">t-test</a> with pooled variance is used in <span class="citation">Singh et al. (2002)</span>, and <span class="math inline">\(t\)</span>-statistics are obtained. One can use the cumulative distribution function (CDF) to compute the probability for rejecting the null hypothesis, but as mentioned in <span class="citation">Efron (2010)</span>, a more conventional way is to transform to <span class="math inline">\(z\)</span>-statistics.</p>
+<p><strong>null hypothesis/null effect</strong></p>
+<p>A null hypothesis is a type of hypothesis used in statistics that proposes that there is no difference between certain characteristics of a population (or data-generating process). In the case of <span class="math inline">\(t\)</span>-test and <span class="math inline">\(z\)</span>-test, the null effect corresponds to <span class="math inline">\(t\)</span>-statistics and <span class="math inline">\(z\)</span>-statistics being 0.</p>
+<hr />
+<p>With no assumption of the underlying structure of the null effects, non-parametric method should be used. With this R package, we can estimate the distribution of the non-null effect given the null proportion. In this case, we assume the component density is normal and use non-parametric maximum likelihood to find the mixing distribution.</p>
 <p><img src="files/densityestimate.png" /><!-- --></p>
 <p>It is also possible to estimate the null proportion using a threshold function (analogue to variable selection). Taking AIC as an example:</p>
 <p><img src="files/pi0estimate.png" /><!-- --></p>
 <p>In this case, the null prortion is estimated to be 0.939.</p>
 <p>A detailed manual of this package can be found <a href="https://xiangjiexue.github.io/npfixedcompR">here</a>.</p>
-<hr />
-<p>Related R packages</p>
+<div id="related-r-packages" class="section level3">
+<h3>Related R packages</h3>
 <ul>
 <li><p>lsei <a href="https://cran.r-project.org/package=lsei"><img src="https://www.r-pkg.org/badges/version/lsei?color=orange" /></a> <a href="https://cran.r-project.org/package=lsei"><img src="https://tinyverse.netlify.com/badge/lsei" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_lsei.html"><img src="https://cranchecks.info/badges/summary/lsei" alt="CRAN checks" /></a></p></li>
 <li><p>nspmix <a href="https://cran.r-project.org/package=nspmix"><img src="https://www.r-pkg.org/badges/version/nspmix?color=orange" /></a> <a href="https://cran.r-project.org/package=nspmix"><img src="https://tinyverse.netlify.com/badge/nspmix" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_nspmix.html"><img src="https://cranchecks.info/badges/summary/nspmix" alt="CRAN checks" /></a></p></li>
 <li><p>devtools <a href="https://cran.r-project.org/package=devtools"><img src="https://www.r-pkg.org/badges/version/devtools?color=orange" /></a> <a href="https://cran.r-project.org/package=devtools"><img src="https://tinyverse.netlify.com/badge/devtools" alt="Dependencies" /></a> <a href="https://cran.r-project.org/web/checks/check_results_devtools.html"><img src="https://cranchecks.info/badges/summary/devtools" alt="CRAN checks" /></a></p></li>
 </ul>
+</div>
+</div>
+</div>
+<div id="section" class="section level1 unnumbered">
+<h1></h1>
 <hr />
-<div id="references" class="section level3 unnumbered">
-<h3>References</h3>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 <div id="refs" class="references">
+<div id="ref-RN143">
+<p>Efron, Bradley. 2010. <em>Large Scale Inference: Empirical Bayes Methods for Estimation, Testing, and Prediction</em>. Cambridge: Cambridge University Press.</p>
+</div>
 <div id="ref-RN104">
 <p>Lindsay, Bruce G. 1983. “The Geometry of Mixture Likelihoods - a General Theory.” Journal Article. <em>Annals of Statistics</em> 11: 86–94. <a href="https://doi.org/DOI%2010.1214/aos/1176346059">https://doi.org/DOI 10.1214/aos/1176346059</a>.</p>
 </div>
 <div id="ref-RN255">
 <p>Singh, Dinesh, Phillip G. Febbo, Kenneth Ross, Donald G. Jackson, Judith Manola, Christine Ladd, Pablo Tamayo, et al. 2002. “Gene Expression Correlates of Clinical Prostate Cancer Behavior.” <em>Cancer Cell</em> 1: 203–9. <a href="https://doi.org/https://doi.org/10.1016/S1535-6108(02)00030-2">https://doi.org/https://doi.org/10.1016/S1535-6108(02)00030-2</a>.</p>
-</div>
 </div>
 </div>
 </div>

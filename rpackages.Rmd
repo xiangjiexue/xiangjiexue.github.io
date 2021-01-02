@@ -34,6 +34,8 @@ More details can be found [HERE](https://r-project.org/)
 
 ***
 
+# Packages {.tabset}
+
 ## npfixedcompR
 
 `r badge_last_commit("xiangjiexue/npfixedcompR")` 
@@ -62,8 +64,27 @@ of distributions.
 
 We use the $z$-values of the prostate data mentioned in @RN255 as an example.
 There are 6033 observations and we are interested in investigating the
-proportion of null effects ($z$-statistic is 0) and the non-null effects. With 
-no assumption of the underlying structure of the null effects, non-parametric
+proportion of null effects ($z$-statistic is 0) and the non-null effects. 
+
+***
+**$z$-values/$z$-statistics**
+
+The two-sample [t-test](https://en.wikipedia.org/wiki/Student%27s_t-test) with
+pooled variance is used in @RN255, and $t$-statistics are obtained. One can use
+the cumulative distribution function (CDF) to compute the probability for
+rejecting the null hypothesis, but as mentioned in @RN143, a more conventional 
+way is to transform to $z$-statistics.
+
+**null hypothesis/null effect**
+
+A null hypothesis is a type of hypothesis used in statistics that proposes that
+there is no difference between certain characteristics of a population (or 
+data-generating process). In the case of $t$-test and $z$-test, the null effect
+corresponds to $t$-statistics and $z$-statistics being 0.
+
+***
+
+With no assumption of the underlying structure of the null effects, non-parametric
 method should be used. With this R package, we can estimate the distribution
 of the non-null effect given the null proportion. In this case, we assume the
 component density is normal and use non-parametric maximum likelihood to find
@@ -81,8 +102,7 @@ In this case, the null prortion is estimated to be 0.939.
 A detailed manual of this package can be found 
 [here](https://xiangjiexue.github.io/npfixedcompR).
 
-***
-Related R packages
+### Related R packages
 
 * lsei `r badge_cran_release("lsei", "orange")` 
 `r badge_dependencies("lsei")` `r badge_cran_checks("lsei")`
@@ -93,6 +113,8 @@ Related R packages
 * devtools `r badge_cran_release("devtools", "orange")` 
 `r badge_dependencies("devtools")` `r badge_cran_checks("devtools")`
 
+# {-}
+
 ***
 
-### References
+# References
