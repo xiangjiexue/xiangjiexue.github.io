@@ -11,12 +11,40 @@ if (!require("stringr")){
   install.packages("stringr")
 }
 library("stringr")
+if (!require("ggplot2")){
+  install.package("ggplot2")
+}
+library(ggplot2)
+if (!require("ggiraph")){
+  install.package("ggiraph")
+}
+library(ggiraph)
 ```
 
 `r badge_last_commit("xiangjiexue/xiangjiexue.github.io")`
 `r badge_lifecycle("experimental", "orange")`
 
 My homepage is currently under initial development.
+
+```{r echo = FALSE}
+filename = list.files(recursive = TRUE)
+filesize = sapply(filename, function(fn){file.info(fn)$size / 1024})
+filework = rep(FALSE, length(filename))
+filework[grep("*pdf", filename)] = TRUE
+filework[grep("*Rmd", filename)] = TRUE
+filework[grep("*yml", filename)] = TRUE
+filework[grep("*bib", filename)] = TRUE
+filework2 = ifelse(filework, "Human work", "Computer Intelligence")
+df = data.frame(filename = filename, filesize = filesize, filework = filework2)
+gg_point = ggplot(df, aes(x = "", y = filesize, fill = filework)) +
+  geom_bar_interactive(width = 1, stat = "identity", tooltip = paste(filename, "has size", filesize, "kB"), data_id = filesize) +
+  labs(title = "Human work vs compute intelligence", fill = NULL) + xlab(NULL) + 
+  ylab("File size (kB)") + 
+  theme(legend.position = "bottom")
+girafe(ggobj = gg_point)
+```
+
+This is a good example on how computer programs change our life: only small amount of code is written by me and the rest is taken care of by various software packages.
 
 **The latest blog from me:**
 
@@ -30,16 +58,19 @@ This website is built in R using Rstudio, and
 hosted by github_pages. Special thanks to the following R 
 packages in building this website:
 
-* rmarkdown `r badge_cran_release("rmarkdown", "orange")` 
+* rmarkdown for building website `r badge_cran_release("rmarkdown", "orange")` 
 `r badge_dependencies("rmarkdown")` `r badge_cran_checks("rmarkdown")`
 
-* badger `r badge_cran_release("badger", "orange")` 
+* badger for creating badges `r badge_cran_release("badger", "orange")` 
 `r badge_dependencies("badger")` `r badge_cran_checks("badger")`
 
-* knitr `r badge_cran_release("knitr", "orange")` 
-`r badge_dependencies("knitr")` `r badge_cran_checks("knitr")`
-
-* stringr `r badge_cran_release("stringr", "orange")` 
+* stringr for implementing the latest blog session on the homepage `r badge_cran_release("stringr", "orange")` 
 `r badge_dependencies("stringr")` `r badge_cran_checks("stringr")`
+
+* ggplot2 for plotting `r badge_cran_release("ggplot2", "orange")` 
+`r badge_dependencies("ggplot2")` `r badge_cran_checks("ggplot2")`
+
+* ggiraph for generating interactive plots using ggplot2 `r badge_cran_release("ggiraph", "orange")` 
+`r badge_dependencies("ggiraph")` `r badge_cran_checks("ggiraph")`
 
 See build information [here](./buildinfo.html).

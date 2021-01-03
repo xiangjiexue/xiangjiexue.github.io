@@ -3,7 +3,7 @@ title: "R packages"
 bibliography: Refs.bib
 ---
 
-```{r echo = FALSE, message = FALSE}
+```{r setup, echo = FALSE, message = FALSE}
 if (!require("badger")){
   install.packages("badger")
 }
@@ -13,6 +13,15 @@ if (!require("devtools")){
   install.packages("devtools")
 }
 library("devtools")
+if (!require("ggplot2")){
+  install.package("ggplot2")
+}
+library(ggplot2)
+if (!require("ggiraph")){
+  install.package("ggiraph")
+}
+library(ggiraph)
+library(npfixedcompR)
 ```
 
 This page gives some details about the R packages that I have written.
@@ -90,14 +99,132 @@ of the non-null effect given the null proportion. In this case, we assume the
 component density is normal and use non-parametric maximum likelihood to find
 the mixing distribution.
 
-`r knitr::include_graphics("./files/densityestimate.png")`
+### {.tabset}
 
-It is also possible to estimate the null proportion using a threshold function 
-(analogue to variable selection). Taking AIC as an example:
+```{r echo = FALSE, message = FALSE}
+load(url("http://statweb.stanford.edu/~ckirby/brad/LSI/datasets-and-programs/data/prostz.RData"))
+```
 
-`r knitr::include_graphics("./files/pi0estimate.png")`
+#### $\pi_0 = 0$
 
-In this case, the null prortion is estimated to be 0.939.
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.301809021, -0.500488260, -0.003708331, 1.000000000, 2.809330991),
+           pr = c(0.02171563, 0.07279940, 0.83538099, 0.05772844, 0.01237554))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### $\pi_0 = 0.2$
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.302185458, -0.500038257, -0.004336594, 0, 1, 2.808962800),
+           pr = c(0.02169991, 0.07342038, 0.63488143, 0.2, 0.05761435, 0.01238394))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### $\pi_0 = 0.4$
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.348945094, -1, -0.004834294, 0, 1, 2.753272083),
+           pr = c(0.01883342, 0.03377183, 0.48726244, 0.4, 0.04648371, 0.01364860))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### $\pi_0 = 0.6$
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.315536331, -0.591791766, -0.005322217, 0, 1, 2.799648740),
+           pr = c(0.02105735, 0.06281354, 0.24852773, 0.6, 0.05499160, 0.01260978))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### $\pi_0 = 0.8$
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.353174204, -1, -0.006323204, 0., 1, 2.747556612),
+           pr = c(0.01864447, 0.03503997, 0.08721501, 0.8, 0.04532354, 0.01377701))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### $\pi_0 = 1$
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = 0,
+           pr = 1)
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+#### Estimated
+
+```{r echo = FALSE, message = FALSE}
+mix = list(pt = c(-2.131320, -1.346703, 0, 1.566444, 2.772682),
+           pr = c(0.0289841268, 0.0005219084, 0.9369648383, 0.0216853183, 0.0118438083))
+df = data.frame(prostz = prostz, est = dnpnorm(prostz, mu0 = mix$pt, pi0 = mix$pr))
+gg_point = ggplot(data = df, aes(x = prostz)) +
+  geom_histogram_interactive(aes(y = ..density.., tooltip = paste("density is", ..density..)), binwidth = density(df$prostz)$bw) +
+  geom_line_interactive(aes(y = est, color = "red", tooltip = "NPMLE")) +
+  theme(legend.position = "none")
+girafe(ggobj = gg_point)
+```
+
+```{r echo = FALSE}
+cbind(points = mix$pt, prob = mix$pr)
+```
+
+### {-}
 
 A detailed manual of this package can be found 
 [here](https://xiangjiexue.github.io/npfixedcompR).
