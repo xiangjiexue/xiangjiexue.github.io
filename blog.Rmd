@@ -3,6 +3,67 @@ title: "Blog? Blog!"
 ---
 
 ***
+## Some speed comparisons between various methods
+07/01/2021
+
+The first one is the speed comparison between the sort function in R and the
+implementation of sort in c++. The vector lengths are 1000, 10000 and 100000,
+respectively.
+
+```
+## Unit: microseconds
+##                         expr    min      lq       mean  median      uq
+##                   sort(data) 64.244 69.7335   76.71547 73.2345 77.5690
+##  npfixedcomp2::sortcpp(data) 32.950 45.3515 9468.34705 51.6425 56.6155
+##         max neval
+##     246.681   100
+##  941769.399   100
+```
+
+```
+## Unit: microseconds
+##                         expr     min       lq     mean   median       uq
+##                   sort(data) 380.850 405.2245 461.9178 429.7320 461.8105
+##  npfixedcomp2::sortcpp(data) 533.561 567.5175 629.1560 599.3305 663.3275
+##       max neval
+##  1190.538   100
+##  1302.534   100
+```
+
+```
+## Unit: milliseconds
+##                         expr      min       lq     mean   median       uq
+##                   sort(data) 2.961002 3.210027 3.970078 3.393015 3.663875
+##  npfixedcomp2::sortcpp(data) 6.275594 6.710628 7.203206 7.031757 7.402814
+##        max neval
+##  13.656188   100
+##   9.724273   100
+```
+
+The second one is performing $A\times b$, where A is a matrix and b is a vector. The
+matrix sizes are 1000 * 10 and 1000 * 50, respectively.
+
+```
+## Unit: microseconds
+##                                           expr    min      lq     mean  median
+##                                  drop(A %*% b) 16.044 16.7395 17.91799 16.9430
+##  .rowSums(A * rep(b, rep(1000, 10)), 1000, 10) 67.569 88.3175 94.86921 91.1955
+##       uq     max neval
+##  17.6445  68.312   100
+##  96.6670 130.533   100
+```
+
+```
+## Unit: microseconds
+##                                           expr     min       lq     mean
+##                                  drop(A %*% b)  56.029  56.9955  65.2491
+##  .rowSums(A * rep(b, rep(1000, 50)), 1000, 50) 262.426 322.2330 355.8702
+##    median      uq     max neval
+##   63.0290  72.912 116.609   100
+##  344.1385 392.860 473.949   100
+```
+
+***
 ## Happy New Year
 01/01/2021
 
@@ -11,7 +72,6 @@ Happy New year from me!
 Wish everyone have a great year this year!
 
 ***
-
 ## Initialisation
 01/01/2021
 
