@@ -3,6 +3,54 @@ title: "List of all references"
 author: "Xiangjie Xue"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: html_document
-bibliography: Refs.bib
-nocite: '@*'
+# bibliography: Refs.bib
+# nocite: '@*'
 ---
+
+```{r echo = FALSE, message = FALSE}
+if (!require(jsonlite)){
+  install.packages("jsonlite")
+}
+library(jsonlite)
+if (!require(dplyr)){
+  install.packages("dplyr")
+}
+library(dplyr)
+if (!require(DT)){
+  install.packages("DT")
+}
+library(DT)
+```
+
+The following table only shows the first two authors.
+```{r echo = FALSE}
+rawdata = read_json("./Refs.json")
+rawdata1 = lapply(rawdata, function(x){
+  temp = unlist(x)
+  temp2 = matrix(temp, nrow = 1)
+  colnames(temp2) = names(temp)
+  data.frame(temp2)
+})
+df = Reduce(bind_rows, rawdata1)
+df = select(df, "id", "issued.date.parts", "title", "type", "author.family",
+            "author.given", "author.family.1", "author.given.1")
+colnames(df) = c("id", "year", "title", "type", "author1.family", "author1.given",
+                 "author2.family", "author2.given")
+datatable(df)
+```
+
+This table is generated using
+```{r eval = FALSE}
+/Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc --bib2json Refs.bib > Refs.json
+```
+
+### Related R packages
+
+* jsonlite `r badge_cran_release("jsonlite", "orange")` 
+`r badge_dependencies("jsonlite")` `r badge_cran_checks("jsonlite")`
+
+* dplyr `r badge_cran_release("dplyr", "orange")` 
+`r badge_dependencies("dplyr")` `r badge_cran_checks("dplyr")`
+
+* DT `r badge_cran_release("DT", "orange")` 
+`r badge_dependencies("DT")` `r badge_cran_checks("DT")`
