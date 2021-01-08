@@ -2,6 +2,13 @@
 title: "About Me"
 ---
 
+```{r echo = FALSE, message = FALSE}
+if (!require(DT)){
+  install.packages("DT")
+}
+library(DT)
+```
+
 About myself:
 
 * Strong background in mathematics and statistics,
@@ -27,6 +34,14 @@ B.Sc.(Hon), Statistics (First Class), 2015, University of Auckland
 [technical detail](./honthesis.html)
 
 B.Sc., Applied Mathematics and Operations Research, 2014, University of Auckland
+
+***
+### Completed course list
+```{r echo = FALSE}
+df = read.csv("./files/courselist.csv")
+datatable(df, rownames = FALSE,
+          options = list(pageLength = 5))
+```
 
 ***
 

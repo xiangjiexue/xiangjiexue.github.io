@@ -1,6 +1,6 @@
 ---
 title: "Large-scale Inference Using Non-parametric Mixtures"
-bibliography: Refs.bib
+bibliography: ./files/Refs.bib
 ---
 
 Doctoral Thesis supervised by Dr. Yong Wang

@@ -1,6 +1,6 @@
 ---
 title: "R packages"
-bibliography: Refs.bib
+bibliography: ./files/Refs.bib
 ---
 
 ```{r setup, echo = FALSE, message = FALSE}

@@ -25,7 +25,7 @@ library(DT)
 The following table only shows the first two authors. This table is for personal
 use only.
 ```{r echo = FALSE}
-rawdata = read_json("./Refs.json")
+rawdata = read_json("./files/Refs.json")
 rawdata1 = lapply(rawdata, function(x){
   temp = unlist(x)
   temp2 = matrix(temp, nrow = 1)
@@ -33,15 +33,15 @@ rawdata1 = lapply(rawdata, function(x){
   data.frame(temp2)
 })
 df = Reduce(bind_rows, rawdata1)
-df = select(df, "id", "issued.date.parts", "title", "type", "author.family",
+df = select(df, "id", "issued.date.parts", "title", "author.family",
             "author.family.1", "author.family.2")
-colnames(df) = c("id", "year", "title", "type", "author1.family", 
+colnames(df) = c("id", "year", "title", "author1.family", 
                  "author2.family", "author3.family")
 datatable(df, filter = list(position = 'top', clear = TRUE), rownames = FALSE)
 ```
 
 This table is generated using
-```{r eval = FALSE}
+```
 /Applications/RStudio.app/Contents/MacOS/pandoc/pandoc-citeproc --bib2json Refs.bib > Refs.json
 ```
 
