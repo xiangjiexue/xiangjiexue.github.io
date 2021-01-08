@@ -1,0 +1,10 @@
+---
+title: "Personal Page"
+author: "Xiangjie Xue"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+This is the main page for my own use. Click [here](./index.html) to return to
+the homepage.
+
+[bib entry search engine for Refs.bib](./ref.html) 

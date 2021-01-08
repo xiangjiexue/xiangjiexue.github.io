@@ -22,7 +22,8 @@ if (!require(DT)){
 library(DT)
 ```
 
-The following table only shows the first two authors.
+The following table only shows the first two authors. This table is for personal
+use only.
 ```{r echo = FALSE}
 rawdata = read_json("./Refs.json")
 rawdata1 = lapply(rawdata, function(x){
@@ -33,10 +34,10 @@ rawdata1 = lapply(rawdata, function(x){
 })
 df = Reduce(bind_rows, rawdata1)
 df = select(df, "id", "issued.date.parts", "title", "type", "author.family",
-            "author.given", "author.family.1", "author.given.1")
-colnames(df) = c("id", "year", "title", "type", "author1.family", "author1.given",
-                 "author2.family", "author2.given")
-datatable(df)
+            "author.family.1", "author.family.2")
+colnames(df) = c("id", "year", "title", "type", "author1.family", 
+                 "author2.family", "author3.family")
+datatable(df, filter = list(position = 'top', clear = TRUE), rownames = FALSE)
 ```
 
 This table is generated using
