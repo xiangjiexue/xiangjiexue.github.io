@@ -8,7 +8,10 @@ if (!require("badger")){
   install.packages("badger")
 }
 library("badger")
-
+if (!require("microbenchmark")){
+  install.packages("microbenchmark")
+}
+library("microbenchmark")
 if (!require("devtools")){
   install.packages("devtools")
 }
@@ -21,7 +24,6 @@ if (!require("ggiraph")){
   install.package("ggiraph")
 }
 library(ggiraph)
-library(npfixedcompR)
 ```
 
 This page gives some details about the R packages that I have written.
@@ -104,6 +106,7 @@ the mixing distribution.
 ### {.tabset}
 
 ```{r echo = FALSE, message = FALSE}
+library(npfixedcompR)
 load(url("http://statweb.stanford.edu/~ckirby/brad/LSI/datasets-and-programs/data/prostz.RData"))
 ```
 
@@ -256,8 +259,20 @@ in C++ using the Eigen library.
 The homepage of this package can be found [here](https://xiangjiexue.github.io/npfixedcomp2) and
 the source code of this package can be found [here](https://github.com/xiangjiexue/npfixedcomp2).
 
-For now, nptll, npnormll, npnormcvm and npnormcll have been implemented and it
-is uniformly faster than the corresponding function in npfixedcompR.
+For now, nptll, npnormll, npnormllw, npnormcvm, npnormcvmw, npnormad and npnormcll have been implemented and it is uniformly faster than the corresponding function in npfixedcompR.
+
+```{r}
+detach("package:npfixedcompR", unload=TRUE)
+library(npfixedcomp2)
+data = rnorm(1000, mean = c(0, 2))
+microbenchmark::microbenchmark(computemixdist(data),
+                               nspmix::cnm(nspmix::npnorm(data)))
+
+computemixdist(data)
+nspmix::cnm(nspmix::npnorm(data))
+system.time(r <- computemixdist(rnorm(1e6, mean = c(0, 2)), method = "npnormllw", order = -2))
+r
+```
 
 ### Related R packages
 
@@ -269,6 +284,9 @@ is uniformly faster than the corresponding function in npfixedcompR.
 
 * nspmix `r badge_cran_release("nspmix", "orange")` 
 `r badge_dependencies("nspmix")` `r badge_cran_checks("nspmix")`
+
+* microbenchmark `r badge_cran_release("microbenchmark", "orange")` 
+`r badge_dependencies("microbenchmark")` `r badge_cran_checks("microbenchmark")`
 
 # {-}
 
