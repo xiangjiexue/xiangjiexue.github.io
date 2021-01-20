@@ -12041,5 +12041,26 @@
     "title": "Efficient calculation of the npmle of a mixing distribution for mixtures of exponentials",
     "type": "article-journal",
     "volume": "50"
+  },
+  {
+    "URL": "https://CRAN.R-project.org/package=rvalues",
+    "author": [
+      {
+        "family": "Newton",
+        "given": "Michael"
+      }
+    ],
+    "id": "RN437",
+    "issued": {
+      "date-parts": [
+        [
+          2018
+        ]
+      ]
+    },
+    "note": "R package version 0.6.3",
+    "title": "Rvalues: R-values for ranking in high-dimensional settings",
+    "title-short": "Rvalues",
+    "type": "book"
   }
 ]
