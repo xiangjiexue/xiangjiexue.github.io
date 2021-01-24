@@ -12062,5 +12062,72 @@
     "title": "Rvalues: R-values for ranking in high-dimensional settings",
     "title-short": "Rvalues",
     "type": "book"
+  },
+  {
+    "DOI": "10.1080/10618600.2019.1689985",
+    "author": [
+      {
+        "family": "Kim",
+        "given": "Youngseok"
+      },
+      {
+        "family": "Carbonetto",
+        "given": "Peter"
+      },
+      {
+        "family": "Stephens",
+        "given": "Matthew"
+      },
+      {
+        "family": "Anitescu",
+        "given": "Mihai"
+      }
+    ],
+    "container-title": "Journal of Computational and Graphical Statistics",
+    "id": "RN438",
+    "issue": "2",
+    "issued": {
+      "date-parts": [
+        [
+          2020
+        ]
+      ]
+    },
+    "page": "261-273",
+    "publisher": "Taylor & Francis",
+    "title": "A fast algorithm for maximum likelihood estimation of mixture proportions using sequential quadratic programming",
+    "type": "article-journal",
+    "volume": "29"
+  },
+  {
+    "DOI": "10.1137/08073812X",
+    "author": [
+      {
+        "family": "Kim",
+        "given": "Dongmin"
+      },
+      {
+        "family": "Sra",
+        "given": "Suvrit"
+      },
+      {
+        "family": "Dhillon",
+        "given": "Inderjit S."
+      }
+    ],
+    "container-title": "SIAM Journal on Scientific Computing",
+    "id": "RN439",
+    "issue": "6",
+    "issued": {
+      "date-parts": [
+        [
+          2010
+        ]
+      ]
+    },
+    "page": "3548-3563",
+    "title": "Tackling box-constrained optimization via a new projected quasi-newton approach",
+    "type": "article-journal",
+    "volume": "32"
   }
 ]
