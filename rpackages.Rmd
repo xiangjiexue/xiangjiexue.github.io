@@ -259,20 +259,13 @@ in C++ using the Eigen library.
 The homepage of this package can be found [here](https://xiangjiexue.github.io/npfixedcomp2) and
 the source code of this package can be found [here](https://github.com/xiangjiexue/npfixedcomp2).
 
-For now, nptll, npnormll, npnormllw, npnormcvm, npnormcvmw, npnormad and npnormcll have been implemented and it is uniformly faster than the corresponding function in npfixedcompR.
+For now, nptll, npnormll, npnormllw, npnormcvm, npnormcvmw, npnormad npnormadw and npnormcll have been implemented and it is uniformly faster than the corresponding function in npfixedcompR.
 
-```{r}
-detach("package:npfixedcompR", unload=TRUE)
-library(npfixedcomp2)
-data = rnorm(1000, mean = c(0, 2))
-microbenchmark::microbenchmark(computemixdist(data),
-                               nspmix::cnm(nspmix::npnorm(data)))
+TO DO list:
 
-computemixdist(data)
-nspmix::cnm(nspmix::npnorm(data))
-system.time(r <- computemixdist(rnorm(1e6, mean = c(0, 2)), method = "npnormllw", order = -2))
-r
-```
+ - investigate the grid points for distance-based methods. For the computation using density (all the likelihood-based methods implemented), we can obtain a set of grid points that contains all the potential support points. This is not the case for distance-based methods which uses cumulative distribution functions. An example of this is shown in npnormad(w). The NPMDE is not obtained since the boundary of the grid points are in the support point, which shows that the method need points outside of this support space.
+ 
+ - It may be interesting to investigate chaining in Eigen, and see how this can be applied in the package.
 
 ### Related R packages
 

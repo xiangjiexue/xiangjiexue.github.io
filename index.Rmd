@@ -45,7 +45,7 @@ gg_point = ggplot(df, aes(x = "", y = filesize, fill = filework)) +
 girafe(ggobj = gg_point)
 ```
 
-This is a good example on how computer programs change our life: only small amount of code is written by me and the rest is taken care of by various software packages.
+This is a good example on how computer programs change our life: only small amount of code (`r sum(filesize[filework]) / sum(filesize) * 100`%) is written by me and the rest is taken care of by various software packages.
 
 **The latest blog from me:**
 
