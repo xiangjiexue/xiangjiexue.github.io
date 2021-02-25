@@ -19,6 +19,15 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -35,11 +44,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -52,32 +56,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -88,10 +66,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -108,40 +82,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -169,7 +116,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -181,7 +128,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -192,10 +139,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -207,7 +167,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -320,7 +279,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -331,7 +290,7 @@ $(document).ready(function () {
 
 <p>Build info for this site:</p>
 <p><a href="https://github.com/xiangjiexue/xiangjiexue.github.io"><img src="https://img.shields.io/github/languages/code-size/xiangjiexue/xiangjiexue.github.io.svg" /></a></p>
-<pre><code>## R version 4.0.3 (2020-10-10)
+<pre><code>## R version 4.0.4 (2021-02-15)
 ## Platform: x86_64-apple-darwin17.0 (64-bit)
 ## Running under: macOS Big Sur 10.16
 ## 
@@ -349,19 +308,21 @@ $(document).ready(function () {
 ## [1] badger_0.0.9 DT_0.17     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] BiocManager_1.30.10 compiler_4.0.3      pillar_1.4.7       
-##  [4] RColorBrewer_1.1-2  tools_4.0.3         digest_0.6.27      
-##  [7] jsonlite_1.7.2      evaluate_0.14       lifecycle_0.2.0    
-## [10] tibble_3.0.4        gtable_0.3.0        pkgconfig_2.0.3    
-## [13] rlang_0.4.10        rvcheck_0.1.8       crosstalk_1.1.1    
-## [16] yaml_2.2.1          xfun_0.20           stringr_1.4.0      
-## [19] dplyr_1.0.2         knitr_1.30          generics_0.1.0     
-## [22] htmlwidgets_1.5.3   vctrs_0.3.6         dlstats_0.1.3      
-## [25] grid_4.0.3          tidyselect_1.1.0    glue_1.4.2         
-## [28] R6_2.5.0            rmarkdown_2.6       ggplot2_3.3.3      
-## [31] purrr_0.3.4         magrittr_2.0.1      scales_1.1.1       
-## [34] htmltools_0.5.0     ellipsis_0.3.1      colorspace_2.0-0   
-## [37] stringi_1.5.3       munsell_0.5.0       crayon_1.3.4</code></pre>
+##  [1] BiocManager_1.30.10 bslib_0.2.4         compiler_4.0.4     
+##  [4] pillar_1.5.0        RColorBrewer_1.1-2  jquerylib_0.1.3    
+##  [7] tools_4.0.4         digest_0.6.27       jsonlite_1.7.2     
+## [10] evaluate_0.14       lifecycle_1.0.0     tibble_3.0.6       
+## [13] gtable_0.3.0        pkgconfig_2.0.3     rlang_0.4.10       
+## [16] rvcheck_0.1.8       crosstalk_1.1.1     yaml_2.2.1         
+## [19] xfun_0.21           stringr_1.4.0       dplyr_1.0.4        
+## [22] knitr_1.31          generics_0.1.0      htmlwidgets_1.5.3  
+## [25] sass_0.3.1          vctrs_0.3.6         dlstats_0.1.3      
+## [28] tidyselect_1.1.0    grid_4.0.4          glue_1.4.2         
+## [31] R6_2.5.0            fansi_0.4.2         rmarkdown_2.7      
+## [34] purrr_0.3.4         ggplot2_3.3.3       magrittr_2.0.1     
+## [37] scales_1.1.1        htmltools_0.5.1.1   ellipsis_0.3.1     
+## [40] colorspace_2.0-0    utf8_1.1.4          stringi_1.5.3      
+## [43] munsell_0.5.0       crayon_1.4.1</code></pre>
 
 <hr />
 
@@ -394,7 +355,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

@@ -47,22 +47,21 @@ More details can be found [HERE](https://r-project.org/)
 
 # Packages {.tabset}
 
-## npfixedcompR
+## npfixedcomp2
 
-`r badge_last_commit("xiangjiexue/npfixedcompR")` 
-`r badge_devel("xiangjiexue/npfixedcompR", "blue")`
+`r badge_last_commit("xiangjiexue/npfixedcomp2")` 
+`r badge_devel("xiangjiexue/npfixedcomp2", "blue")`
 `r badge_custom("on CRAN", "no", "red")`
-
-**Note that this package will be freezed. The npfixedcomp2 is under ongoing development.**
 
 During [my PhD study](./phdthesis.html), I have developed different approaches
 to estimating a mixing distribution (or mixtures) non-parametrically and 
-implemented these in R. The source code can be found on 
-[this Github repo](https://github.com/xiangjiexue/npfixedcompR) and can be
+implemented these in R. It is essentiall written in C++ using [Eigen](https://eigen.tuxfamily.org) numerical library. 
+The source code can be found on 
+[this Github repo](https://github.com/xiangjiexue/npfixedcomp2) and can be
 installed using the devtools package.
 
 ```{r, eval = FALSE}
-devtools::install_github("xiangjiexue/npfixedcompR")
+devtools::install_github("xiangjiexue/npfixedcomp2")
 ```
 
 ***
@@ -106,7 +105,7 @@ the mixing distribution.
 ### {.tabset}
 
 ```{r echo = FALSE, message = FALSE}
-library(npfixedcompR)
+library(npfixedcomp2)
 load(url("http://statweb.stanford.edu/~ckirby/brad/LSI/datasets-and-programs/data/prostz.RData"))
 ```
 
@@ -232,7 +231,15 @@ cbind(points = mix$pt, prob = mix$pr)
 ### {-}
 
 A detailed manual of this package can be found 
-[here](https://xiangjiexue.github.io/npfixedcompR).
+[here](https://xiangjiexue.github.io/npfixedcomp2).
+
+Functions in this package are fast, thanks to Eigen numerical library. This is a comparison to the cnm function. Of course, cnm function is much more flexible in defining the class in R.
+
+```{r}
+data = rnorm(1000, c(0, 2))
+library(nspmix)
+microbenchmark::microbenchmark(computemixdist(data), cnm(npnorm(data)))
+```
 
 ### Related R packages
 
@@ -245,41 +252,11 @@ A detailed manual of this package can be found
 * devtools `r badge_cran_release("devtools", "orange")` 
 `r badge_dependencies("devtools")` `r badge_cran_checks("devtools")`
 
-## npfixedcomp2
-
-`r badge_last_commit("xiangjiexue/npfixedcomp2")` 
-`r badge_devel("xiangjiexue/npfixedcomp2", "blue")`
-`r badge_custom("on CRAN", "no", "red")`
-
-
-This is package is to replace npfixedcompR in the future. The npfixedcompR package
-is written in R, it is relatively slow and has some issue. This package is written
-in C++ using the Eigen library.
-
-The homepage of this package can be found [here](https://xiangjiexue.github.io/npfixedcomp2) and
-the source code of this package can be found [here](https://github.com/xiangjiexue/npfixedcomp2).
-
-For now, nptll, npnormll, npnormllw, npnormcvm, npnormcvmw, npnormad npnormadw and npnormcll have been implemented and it is uniformly faster than the corresponding function in npfixedcompR.
-
-TO DO list:
-
- - investigate the grid points for distance-based methods. For the computation using density (all the likelihood-based methods implemented), we can obtain a set of grid points that contains all the potential support points. This is not the case for distance-based methods which uses cumulative distribution functions. An example of this is shown in npnormad(w). The NPMDE is not obtained since the boundary of the grid points are in the support point, which shows that the method need points outside of this support space.
- 
- - It may be interesting to investigate chaining in Eigen, and see how this can be applied in the package.
-
-### Related R packages
-
 * Rcpp `r badge_cran_release("Rcpp", "orange")` 
 `r badge_dependencies("Rcpp")` `r badge_cran_checks("Rcpp")`
 
 * RcppEigen `r badge_cran_release("RcppEigen", "orange")` 
 `r badge_dependencies("RcppEigen")` `r badge_cran_checks("RcppEigen")`
-
-* nspmix `r badge_cran_release("nspmix", "orange")` 
-`r badge_dependencies("nspmix")` `r badge_cran_checks("nspmix")`
-
-* microbenchmark `r badge_cran_release("microbenchmark", "orange")` 
-`r badge_dependencies("microbenchmark")` `r badge_cran_checks("microbenchmark")`
 
 # {-}
 
