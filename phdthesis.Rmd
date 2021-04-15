@@ -50,7 +50,7 @@ These methods have been implemented in the R programming language, see
 Partial work has been presented as a poster in JSM2019, see 
 [here](https://ww2.amstat.org/meetings/jsm/2019/onlineprogram/AbstractDetails.cfm?abstractid=304336) for the abstract and [here](./files/poster.pdf) for the A0 size poster.
 
-The slides for oral examination can be found [here](./files/def.html).
+The slides for oral examination can be found [here](./files/def.html), and the full thesis can be viewed [here](https://hdl.handle.net/2292/54659) via University of Auckland website.
 
 ***
 

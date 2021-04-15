@@ -12085,7 +12085,6 @@
     ],
     "container-title": "Journal of Computational and Graphical Statistics",
     "id": "RN438",
-    "issue": "2",
     "issued": {
       "date-parts": [
         [
@@ -12117,7 +12116,6 @@
     ],
     "container-title": "SIAM Journal on Scientific Computing",
     "id": "RN439",
-    "issue": "6",
     "issued": {
       "date-parts": [
         [
@@ -12127,6 +12125,33 @@
     },
     "page": "3548-3563",
     "title": "Tackling box-constrained optimization via a new projected quasi-newton approach",
+    "type": "article-journal",
+    "volume": "32"
+  },
+  {
+    "ISSN": "0263-6115",
+    "author": [
+      {
+        "family": "Tallis",
+        "given": "G. M"
+      },
+      {
+        "family": "Chesson",
+        "given": "P"
+      }
+    ],
+    "id": "RN440",
+    "issued": {
+      "date-parts": [
+        [
+          1982
+        ]
+      ]
+    },
+    "page": "339-348",
+    "publisher": "Cambridge University Press",
+    "publisher-place": "Cambridge, UK",
+    "title": "Identifiability of mixtures",
     "type": "article-journal",
     "volume": "32"
   }

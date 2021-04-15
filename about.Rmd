@@ -27,7 +27,7 @@ You can reach me at [Github](https://github.com/xiangjiexue),
 
 ### Education
 
-Ph.D., Statistics, 2020, University of Auckland (Under minor corrections) 
+Ph.D., Statistics, 2020, University of Auckland 
 [technical detail](./phdthesis.html)
 
 B.Sc.(Hon), Statistics (First Class), 2015, University of Auckland
