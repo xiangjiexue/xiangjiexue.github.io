@@ -45,7 +45,7 @@ performs well and can be applied to a wide range of covariance structures.
 
 These methods have been implemented in the R programming language, see 
 [R packages](./rpackages.html) for more detail and see 
-[here](https://github.com/xiangjiexue/npfixedcompR) for the source code. There is also [a developing version](https://github.com/xiangjiexue/npfixedcomp2) of the package using C++ and Eigen library.
+[here](https://github.com/xiangjiexue/npfixedcomp2) for the source code based on C++ and Eigen library.
 
 Partial work has been presented as a poster in JSM2019, see 
 [here](https://ww2.amstat.org/meetings/jsm/2019/onlineprogram/AbstractDetails.cfm?abstractid=304336) for the abstract and [here](./files/poster.pdf) for the A0 size poster.
