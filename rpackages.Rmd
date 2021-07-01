@@ -49,9 +49,7 @@ More details can be found [HERE](https://r-project.org/)
 
 ## npfixedcomp2
 
-`r badge_last_commit("xiangjiexue/npfixedcomp2")` 
-`r badge_devel("xiangjiexue/npfixedcomp2", "blue")`
-`r badge_custom("on CRAN", "no", "red")`
+
 
 During [my PhD study](./phdthesis.html), I have developed different approaches
 to estimating a mixing distribution (or mixtures) non-parametrically and 

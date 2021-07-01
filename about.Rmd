@@ -17,11 +17,11 @@ About myself:
 
 * Curiosity in modern technologies. 
 
-My academic CV can be found [here](./files/Xiangjie Xue - Academic.pdf).
+My academic CV can be found [in English](./files/Xiangjie Xue - Academic.pdf)
+and [in Simplified Chinese](./files/cvcn.pdf)
 
 You can reach me at [Github](https://github.com/xiangjiexue),
-[Email](mailto:<xxjiexxjie@gmail.com>),
-[UOAwebpage](https://stat.auckland.ac.nz/~xxue017).
+[Email](mailto:<xxjiexxjie@163.com>).
 
 *** 
 
